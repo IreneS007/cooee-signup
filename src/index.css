@@ -1,0 +1,25 @@
+@import "tailwindcss";
+@import "./App.css";
+
+/* Minimalist black/white inspired animations */
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 400ms ease-out both;
+}
+
+.delay-1 { animation-delay: 60ms; }
+.delay-2 { animation-delay: 120ms; }
+.delay-3 { animation-delay: 180ms; }
+
+/* Dark mode text fields visibility */
+.dark input, .dark select, .dark textarea {
+  background-color: rgb(23 23 23 / 1);
+  color: white;
+  border-color: rgb(64 64 64 / 1);
+}
+.dark label { color: rgb(212 212 212 / 1); }
+.dark .card, .dark .panel { background-color: rgb(15 15 15 / 1); border-color: rgb(38 38 38 / 1); }
