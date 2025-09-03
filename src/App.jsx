@@ -581,7 +581,7 @@ export default function App() {
   } rounded-xl border p-3`}
 >
   {/* Use flex justify-center on desktop, overflow-x-auto on mobile */}
-  <div className="flex items-center justify-center w-full overflow-x-auto sm:justify-between">
+  <div className="flex items-center w-full overflow-x-auto sm:justify-between">
     {['Number','Plan','Register','Payment','Done'].map((label, idx) => {
       const isActive = step === idx + 1
       const isDone = step > idx + 1
