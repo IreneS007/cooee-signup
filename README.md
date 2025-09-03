@@ -11,7 +11,7 @@ A modern, animated, mobile-responsive signup flow built with **React**, **Vite**
 - Dark mode toggle
 - Stylish UI with glassmorphism and modern visuals
 - Country/number selection, plan selection, registration, and payment simulation
-- Mock API for demo purposes (no backend required)
+- Mock API for demo purposes 
 
 ---
 
