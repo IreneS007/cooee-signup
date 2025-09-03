@@ -524,7 +524,7 @@ export default function App() {
             COOEE
           </button>
           <div className="flex items-center gap-3">
-            {/* Onboarding text removed */}
+            
             {/* Toggle switch for dark mode */}
             <label className="flex items-center cursor-pointer">
               <input
@@ -575,40 +575,63 @@ export default function App() {
           </div>
         </div>
         {/* Step bar starts below */}
-        <div
+       <div
   className={`${
     darkMode ? 'bg-[#23272f] border-[#0ff4]' : '!bg-white border-gray-200'
-     } rounded-xl border p-3`}
-     >
-          <div className="flex items-center w-full">
-            {['Number','Plan','Register','Payment','Done'].map((label, idx) => {
-              const isActive = step === idx + 1
-              const isDone = step > idx + 1
-              return (
-                <div key={label} className="flex items-center flex-1">
-                  <div className="flex items-center gap-2">
-                    <span className={`inline-flex h-7 w-7 items-center justify-center rounded-full text-[11px] font-semibold border ${
-                      isDone
-                        ? darkMode
-                          ? 'bg-[#0ff4] text-[#23272f] border-[#0ff4]'
-                          : 'bg-black text-white border-black'
-                        : isActive
-                        ? darkMode
-                          ? 'bg-[#23272f] text-[#0ff4] border-[#0ff4]'
-                          : 'bg-white text-black border-black'
-                        : darkMode
-                        ? 'bg-[#23272f] text-[#80deea] border-[#0ff4]'
-                        : 'bg-white text-gray-400 border-gray-300'
-                    }`}>{isDone ? '✓' : idx + 1}</span>
-                    {/* Step label only, no step number */}
-                    <span className={`uppercase tracking-wide text-[11px] ${isActive ? (darkMode ? 'text-[#0ff4]' : 'text-black') : (darkMode ? 'text-[#80deea]' : 'text-gray-500')}`}>{label}</span>
-                  </div>
-                  {idx < 4 && <div className={`flex-1 h-px ${darkMode ? 'bg-[#0ff4]' : 'bg-gray-300'} mx-3`} />}
-                </div>
-              )
-            })}
+  } rounded-xl border p-3`}
+>
+  {/* Use flex justify-center on desktop, overflow-x-auto on mobile */}
+  <div className="flex items-center justify-center w-full overflow-x-auto sm:justify-between">
+    {['Number','Plan','Register','Payment','Done'].map((label, idx) => {
+      const isActive = step === idx + 1
+      const isDone = step > idx + 1
+      return (
+        <div key={label} className="flex items-center flex-shrink-0 sm:flex-1">
+          <div className="flex items-center gap-2">
+            <span
+              className={`inline-flex h-7 w-7 items-center justify-center rounded-full text-[11px] font-semibold border ${
+                isDone
+                  ? darkMode
+                    ? 'bg-[#0ff4] text-[#23272f] border-[#0ff4]'
+                    : 'bg-black text-white border-black'
+                  : isActive
+                  ? darkMode
+                    ? 'bg-[#23272f] text-[#0ff4] border-[#0ff4]'
+                    : 'bg-white text-black border-black'
+                  : darkMode
+                  ? 'bg-[#23272f] text-[#80deea] border-[#0ff4]'
+                  : 'bg-white text-gray-400 border-gray-300'
+              }`}
+            >
+              {isDone ? '✓' : idx + 1}
+            </span>
+            <span
+              className={`uppercase tracking-wide text-[11px] ${
+                isActive
+                  ? darkMode
+                    ? 'text-[#0ff4]'
+                    : 'text-black'
+                  : darkMode
+                  ? 'text-[#80deea]'
+                  : 'text-gray-500'
+              }`}
+            >
+              {label}
+            </span>
           </div>
+          {idx < 4 && (
+            <div
+              className={`flex-1 h-px ${
+                darkMode ? 'bg-[#0ff4]' : 'bg-gray-300'
+              } mx-3`}
+            />
+          )}
         </div>
+      )
+    })}
+  </div>
+</div>
+
         
         
        
